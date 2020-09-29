@@ -7,6 +7,8 @@ TOTAL_WAGE=0
 PER_MONTH_WAGE=0
 DAY=1
 HOURS=0
+echo "calculte the wages for a month"
+echo "DailyWage		TotalWage"
 GetWorkHours()
 {
 #        check=$(( RANDOM%3 ))
@@ -29,7 +31,8 @@ do
         HOURS=$(( $HOURS + $emphrs ))
         TOTAL_WAGE=$(( $emphrs * $WAGE_PER_HOUR ))
         PER_MONTH_WAGE=$(( $TOTAL_WAGE + $PER_MONTH_WAGE ))
-DAY=$((DAY+1))
+	DAY=$((DAY+1))
+	echo "$TOTAL_WAGE		$PER_MONTH_WAGE"
 done
 echo "Month wages : " $PER_MONTH_WAGE
 echo "Total hours : " $HOURS
