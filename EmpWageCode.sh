@@ -5,10 +5,10 @@ FULL_DAY_HOUR=8
 PART_TIME=4
 TOTAL_WAGE=0
 PER_MONTH_WAGE=0
-DAY=1
+DAY=0
 HOURS=0
 echo "calculte the wages for a month"
-echo "DailyWage		TotalWage"
+echo "Day		DailyWage         TotalWage"
 GetWorkHours()
 {
 #        check=$(( RANDOM%3 ))
@@ -24,16 +24,16 @@ GetWorkHours()
                 emphrs=0;;
 esac
 }
-while (( $(($DAY<21)) && $(($HOURS<=100)) ))
+while (( $(($DAY<20)) && $(($HOURS<=100)) ))
 do
         check=$(( RANDOM%3 ))
         GetWorkHours $check
         HOURS=$(( $HOURS + $emphrs ))
         TOTAL_WAGE=$(( $emphrs * $WAGE_PER_HOUR ))
         PER_MONTH_WAGE=$(( $TOTAL_WAGE + $PER_MONTH_WAGE ))
-	DAY=$((DAY+1))
-	echo "$TOTAL_WAGE		$PER_MONTH_WAGE"
+        DAY=$((DAY+1))
+        echo "Day $DAY		$TOTAL_WAGE               $PER_MONTH_WAGE"
 done
-echo "Month wages : " $PER_MONTH_WAGE
-echo "Total hours : " $HOURS
+#echo "Month wages : " $PER_MONTH_WAGE
+#echo "Total hours : " $HOURS
 
